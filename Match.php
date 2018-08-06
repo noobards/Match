@@ -469,35 +469,35 @@ class Match {
                     {
                         if($this->batsmanMentality === self::AGGRESIVE_MENTALITY)
                         {
-                            return $this->RunResult(70); // 70% chance of run
+                            return $this->RunResult(70);
                         }
                         else if($this->batsmanMentality === self::MODERATE_MENTALITY)
                         {
-                            return $this->RunResult(50); // 50% chance of run
+                            return $this->RunResult(50);
                         }
                         else if($this->batsmanMentality === self::DEFENSIVE_MENTALITY)
                         {
-                            return $this->RunResult(30); // 30% chance of run
+                            return $this->RunResult(30);
                         }
                     }
                     else if($this->playerAdvantage == 'BOWLER')
                     {
                         if($this->batsmanMentality === self::AGGRESIVE_MENTALITY)
                         {
-                            $this->WicketResult(20); // 20% chance of wicket
+                            return $this->WicketResult(20);
                         }
                         else if($this->batsmanMentality === self::MODERATE_MENTALITY)
                         {
-                            $this->WicketResult(10); // 10% chance of wicket
+                            return $this->WicketResult(10);
                         }
                         else if($this->batsmanMentality === self::DEFENSIVE_MENTALITY)
                         {
-                            $this->WicketResult(0); // 0% chance of wicket
+                            return $this->WicketResult(0);
                         }
                     }
                     else
                     {
-                        return $this->RunResult(50); // 50% chance of run
+                        return $this->RunResult(50);
                     }
                 }
             }
@@ -507,40 +507,92 @@ class Match {
                 {
                     if($this->batsmanMentality === self::AGGRESIVE_MENTALITY)
                     {
-                        return $this->BoundaryResult(50); // 50% chance of boundary
+                        return $this->BoundaryResult(50);
                     }
                     else if($this->batsmanMentality === self::MODERATE_MENTALITY)
                     {
-                        return $this->BoundaryResult(30); // 30% chance of boundary
+                        return $this->BoundaryResult(30);
                     }
                     else if($this->batsmanMentality === self::DEFENSIVE_MENTALITY)
                     {
-                        return $this->BoundaryResult(10); // 10% chance of boundary
+                        return $this->BoundaryResult(10);
                     }
                 }
                 else if($this->playerAdvantage == 'BOWLER')
                 {
                     if($this->batsmanMentality === self::AGGRESIVE_MENTALITY)
                     {
-                        $this->RunResultesult(70); // 70% chance of run
+                        return $this->RunResultesult(70);
                     }
                     else if($this->batsmanMentality === self::MODERATE_MENTALITY)
                     {
-                        $this->RunResultesult(50); // 50% chance of run
+                        return $this->RunResultesult(50);
                     }
                     else if($this->batsmanMentality === self::DEFENSIVE_MENTALITY)
                     {
-                        $this->RunResultesult(30); // 30% chance of run
+                        return $this->RunResultesult(30);
                     }
                 }
                 else
                 {
-                    return $this->RunResult(70); // 70% chance of run
+                    return $this->BoundaryResult(40);
                 }
             }
             else if($type === 'W')// wicket taking ball
             {
-                // start here
+                if($this->pitchType)
+                {
+                    // future upgrade
+                    $this->Error('Pitch type to be handled in future upgrade');
+                }
+                else
+                {
+                    if($this->playerAdvantage == 'BATSMAN')
+                    {
+                        if($this->batsmanMentality === self::AGGRESIVE_MENTALITY)
+                        {
+                            return $this->WicketResult(20);
+                        }
+                        else if($this->batsmanMentality === self::MODERATE_MENTALITY)
+                        {
+                            return $this->WicketResult(15);
+                        }
+                        else if($this->batsmanMentality === self::DEFENSIVE_MENTALITY)
+                        {
+                            return $this->WicketResult(10);
+                        }
+                    }
+                    else if($this->playerAdvantage == 'BOWLER')
+                    {
+                        if($this->batsmanMentality === self::AGGRESIVE_MENTALITY)
+                        {
+                            return $this->WicketResult(35);
+                        }
+                        else if($this->batsmanMentality === self::MODERATE_MENTALITY)
+                        {
+                            return $this->WicketResult(25);
+                        }
+                        else if($this->batsmanMentality === self::DEFENSIVE_MENTALITY)
+                        {
+                            return $this->WicketResult(20);
+                        }
+                    }
+                    else
+                    {
+                        if($this->batsmanMentality === self::AGGRESIVE_MENTALITY)
+                        {
+                            return $this->WicketResult(25);
+                        }
+                        else if($this->batsmanMentality === self::MODERATE_MENTALITY)
+                        {
+                            return $this->WicketResult(15);
+                        }
+                        else if($this->batsmanMentality === self::DEFENSIVE_MENTALITY)
+                        {
+                            return $this->WicketResult(10);
+                        }
+                    }
+                }
             }
             else if($type === 'E') // extra ball
             {
@@ -570,27 +622,27 @@ class Match {
                     {
                         if($this->batsmanMentality === self::AGGRESIVE_MENTALITY)
                         {
-                            return $this->RunResult(50); // 50% chance of run
+                            return $this->RunResult(50);
                         }
                         else if($this->batsmanMentality === self::MODERATE_MENTALITY || $this->batsmanMentality === self::DEFENSIVE_MENTALITY)
                         {
-                            return $this->RunResult(30); // 30% chance of run
+                            return $this->RunResult(30);
                         }                        
                     }
                     else if($this->playerAdvantage == 'BOWLER')
                     {
                         if($this->batsmanMentality === self::AGGRESIVE_MENTALITY)
                         {
-                            $this->WicketResult(20); // 20% chance of wicket
+                            return $this->WicketResult(20);
                         }
                         else if($this->batsmanMentality === self::MODERATE_MENTALITY || $this->batsmanMentality === self::DEFENSIVE_MENTALITY)
                         {
-                            $this->WicketResult(10); // 10% chance of wicket
+                            return $this->WicketResult(10);
                         }                        
                     }
                     else
                     {
-                        return $this->RunResult(40); // 40% chance of run
+                        return $this->RunResult(40);
                     }
                 }                
             }
@@ -600,40 +652,85 @@ class Match {
                 {
                     if($this->batsmanMentality === self::AGGRESIVE_MENTALITY)
                     {
-                        return $this->BoundaryResult(40); // 40% chance of boundary
+                        return $this->BoundaryResult(40);
                     }
                     else if($this->batsmanMentality === self::MODERATE_MENTALITY)
                     {
-                        return $this->BoundaryResult(30); // 30% chance of boundary
+                        return $this->BoundaryResult(30);
                     }
                     else if($this->batsmanMentality === self::DEFENSIVE_MENTALITY)
                     {
-                        return $this->BoundaryResult(10); // 10% chance of boundary
+                        return $this->BoundaryResult(10);
                     }
                 }
                 else if($this->playerAdvantage == 'BOWLER')
                 {
                     if($this->batsmanMentality === self::AGGRESIVE_MENTALITY)
                     {
-                        $this->RunResultesult(50); // 50% chance of run
+                        return $this->RunResultesult(50);
                     }
                     else if($this->batsmanMentality === self::MODERATE_MENTALITY)
                     {
-                        $this->RunResultesult(30); // 30% chance of run
+                        return $this->RunResultesult(30);
                     }
                     else if($this->batsmanMentality === self::DEFENSIVE_MENTALITY)
                     {
-                        $this->RunResultesult(20); // 20% chance of run
+                        return $this->RunResultesult(20);
                     }
                 }
                 else
                 {
-                    return $this->RunResult(50); // 50% chance of run
+                    return $this->RunResult(90);
                 }
             }
             else if($type === 'W')// wicket taking ball
             {
-
+                if($this->pitchType)
+                {
+                    // future upgrade
+                    $this->Error('Pitch type to be handled in future upgrade');
+                }
+                else
+                {
+                    if($this->playerAdvantage == 'BATSMAN')
+                    {
+                        if($this->batsmanMentality === self::AGGRESIVE_MENTALITY)
+                        {
+                            return $this->WicketResult(30);
+                        }
+                        else if($this->batsmanMentality === self::MODERATE_MENTALITY || $this->batsmanMentality === self::DEFENSIVE_MENTALITY)
+                        {
+                            return $this->WicketResult(25);
+                        }
+                    }
+                    else if($this->playerAdvantage == 'BOWLER')
+                    {
+                        if($this->batsmanMentality === self::AGGRESIVE_MENTALITY)
+                        {
+                            return $this->WicketResult(40);
+                        }
+                        else if($this->batsmanMentality === self::MODERATE_MENTALITY || $this->batsmanMentality === self::DEFENSIVE_MENTALITY)
+                        {
+                            return $this->WicketResult(30);
+                        }                        
+                    }
+                    else
+                    {
+                        if($this->batsmanMentality === self::AGGRESIVE_MENTALITY)
+                        {
+                            return $this->WicketResult(25);
+                        }
+                        else if($this->batsmanMentality === self::MODERATE_MENTALITY)
+                        {
+                            return $this->WicketResult(15);
+                        }
+                        else if($this->batsmanMentality === self::DEFENSIVE_MENTALITY)
+                        {
+                            return $this->WicketResult(10);
+                        }
+                    }
+                }
+                
             }
             else if($type === 'E') // extra ball
             {
@@ -663,35 +760,35 @@ class Match {
                     {
                         if($this->batsmanMentality === self::AGGRESIVE_MENTALITY)
                         {
-                            return $this->BoundaryResult(40); // 40% chance of boundary
+                            return $this->BoundaryResult(40);
                         }
                         else if($this->batsmanMentality === self::MODERATE_MENTALITY)
                         {
-                            return $this->BoundaryResult(30); // 30% chance of boundary
+                            return $this->BoundaryResult(30);
                         }
                         else if($this->batsmanMentality === self::DEFENSIVE_MENTALITY)
                         {
-                            return $this->BoundaryResult(20); // 20% chance of boundary
+                            return $this->BoundaryResult(20);
                         }
                     }
                     else if($this->playerAdvantage == 'BOWLER')
                     {
                         if($this->batsmanMentality === self::AGGRESIVE_MENTALITY)
                         {
-                            $this->WicketResult(30); // 30% chance of wicket
+                            return $this->WicketResult(30);
                         }
                         else if($this->batsmanMentality === self::MODERATE_MENTALITY)
                         {
-                            $this->WicketResult(20); // 20% chance of wicket
+                            return $this->WicketResult(20);
                         }
                         else if($this->batsmanMentality === self::DEFENSIVE_MENTALITY)
                         {
-                            $this->WicketResult(10); // 10% chance of wicket
+                            return $this->WicketResult(10);
                         }
                     }
                     else
                     {
-                        return $this->BoundaryResult(50); // 50% chance of boundary
+                        return $this->BoundaryResult(50);
                     }
                 }
             }
@@ -701,40 +798,84 @@ class Match {
                 {
                     if($this->batsmanMentality === self::AGGRESIVE_MENTALITY)
                     {
-                        return $this->BoundaryResult(70); // 70% chance of boundary
+                        return $this->BoundaryResult(70);
                     }
                     else if($this->batsmanMentality === self::MODERATE_MENTALITY)
                     {
-                        return $this->BoundaryResult(60); // 60% chance of boundary
+                        return $this->BoundaryResult(60);
                     }
                     else if($this->batsmanMentality === self::DEFENSIVE_MENTALITY)
                     {
-                        return $this->BoundaryResult(40); // 40% chance of boundary
+                        return $this->BoundaryResult(40);
                     }
                 }
                 else if($this->playerAdvantage == 'BOWLER')
                 {
                     if($this->batsmanMentality === self::AGGRESIVE_MENTALITY)
                     {
-                        $this->BoundaryResult(30); // 30% chance of boundary
+                        return $this->BoundaryResult(50);
                     }
                     else if($this->batsmanMentality === self::MODERATE_MENTALITY)
                     {
-                        $this->BoundaryResult(20); // 20% chance of boundary
+                        return $this->BoundaryResult(40);
                     }
                     else if($this->batsmanMentality === self::DEFENSIVE_MENTALITY)
                     {
-                        $this->BoundaryResult(10); // 10% chance of boundary
+                        return $this->BoundaryResult(30);
                     }
                 }
                 else
                 {
-                    return $this->BoundaryResult(60); // 60% chance of boundary
+                    return $this->BoundaryResult(60);
                 }
             }
             else if($type === 'W')// wicket taking ball
             {
-
+                if($this->pitchType)
+                {
+                    // future upgrade
+                    $this->Error('Pitch type to be handled in future upgrade');
+                }
+                else
+                {
+                    if($this->playerAdvantage == 'BATSMAN')
+                    {
+                        if($this->batsmanMentality === self::AGGRESIVE_MENTALITY)
+                        {
+                            return $this->WicketResult(40);
+                        }
+                        else if($this->batsmanMentality === self::MODERATE_MENTALITY || $this->batsmanMentality === self::DEFENSIVE_MENTALITY)
+                        {
+                            return $this->WicketResult(35);
+                        }
+                    }
+                    else if($this->playerAdvantage == 'BOWLER')
+                    {
+                        if($this->batsmanMentality === self::AGGRESIVE_MENTALITY)
+                        {
+                            return $this->WicketResult(50);
+                        }
+                        else if($this->batsmanMentality === self::MODERATE_MENTALITY || $this->batsmanMentality === self::DEFENSIVE_MENTALITY)
+                        {
+                            return $this->WicketResult(40);
+                        }                        
+                    }
+                    else
+                    {
+                        if($this->batsmanMentality === self::AGGRESIVE_MENTALITY)
+                        {
+                            return $this->WicketResult(25);
+                        }
+                        else if($this->batsmanMentality === self::MODERATE_MENTALITY)
+                        {
+                            return $this->WicketResult(15);
+                        }
+                        else if($this->batsmanMentality === self::DEFENSIVE_MENTALITY)
+                        {
+                            return $this->WicketResult(10);
+                        }
+                    }
+                }
             }
             else if($type === 'E') // extra ball
             {
